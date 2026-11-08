@@ -1,0 +1,22 @@
+name: Özellik önerisi
+description: StudyOS'u daha kullanışlı kılacak bir fikir paylaşın.
+title: "[Öneri] "
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: Hangi ihtiyacı karşılamasını istiyorsunuz?
+      placeholder: "Şu işi yaparken ... konusunda zorlanıyorum."
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: Önerdiğiniz çözüm
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Örnek veya alternatif
+      description: "Varsa bir çizim, ekran görüntüsü veya bağlantı ekleyebilirsiniz."

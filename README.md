@@ -1,73 +1,86 @@
-# StudyOS Desktop · v0.1
+<div align="center">
 
-Windows için çevrimdışı kişisel çalışma alanı. Tauri 2, React, TypeScript, Tailwind 4 ve Rust / SQLite.
+<img src="docs/assets/studyos-cover.svg" alt="StudyOS — Kendi ritminde, bir adım ileri. Planlayıcı, odak sayacı ve PDF kütüphanesi." width="100%" />
 
-## Hızlı başlangıç
+# StudyOS Desktop
 
-Node.js LTS kurulu bir terminalde bu klasörü açın:
+**Planların, odak süren ve ders notların — tek bir yerde.**
 
-```powershell
-npm ci
-npm run dev
-```
+Windows için hesabını oluşturmadan kullanabileceğin, verilerini bilgisayarında saklayan kişisel çalışma alanı.
 
-Tarayıcı önizlemesi: http://127.0.0.1:1420 . Önizleme verileri bu tarayıcıya özeldir; masaüstü veritabanıyla paylaşılmaz.
+[**Windows için indir**](https://github.com/ahmeterdi21/SutudyOS/releases/latest) · [Kurulum ve kullanım](docs/INSTALLATION.md) · [Sürüm geçmişi](CHANGELOG.md) · [Geri bildirim](https://github.com/ahmeterdi21/SutudyOS/issues/new/choose)
 
-## Windows masaüstü uygulaması
+A local-first Windows study workspace with a focus timer, daily planner and personal PDF library. The current interface is in Turkish.
 
-Önce [Tauri Windows önkoşullarını](https://v2.tauri.app/start/prerequisites/) kurun:
+</div>
 
-1. Microsoft C++ Build Tools: **Desktop development with C++** ve Windows SDK.
-2. [Rust](https://rustup.rs/): varsayılan MSVC araç zinciri.
-3. Microsoft Edge WebView2 Runtime (Windows 11'de çoğunlukla mevcut).
-4. Node.js LTS.
+## Kendi çalışma düzenini oluştur
 
-Kurulumdan sonra terminali yeniden açın:
+StudyOS; öğrenciler, sınava hazırlananlar ve kendine bir çalışma alışkanlığı kurmak isteyenler için geliştiriliyor. Derslerini ekle, gününü çalışma bloklarına ayır, odak oturumlarını tamamla ve ilerlemeni gör.
 
-```powershell
-npm ci
-npm run tauri dev
-```
+Temel özellikler çevrimdışı çalışır. Derslerin, görevlerin ve içe aktardığın PDF'ler uygulamaya özel yerel depolamada tutulur. Güncelleme kontrolü için internet bağlantısı kullanılır.
 
-Kurulum paketi oluşturmak için:
+> Üstteki görsel, kişisel veri içermeyen temsili bir tanıtımdır. Güncel sürüm erken geliştirme aşamasındadır; yeni özellikler küçük güncellemelerle eklenir.
 
-```powershell
-npm run tauri build
-```
+## Neler yapabilirsin?
 
-NSIS kurulum dosyası `src-tauri/target/release/bundle/nsis/` altında oluşur.
+| Alan | Yapabileceklerin |
+|---|---|
+| **Ana Panel** | Günlük hedefini, tamamlanan odak süreni ve son yedi günlük çalışma ritmini gör. |
+| **Çalışma Odası** | Hazır veya özel sürelerle odaklan; sayacı duraklat, sayfa değiştir ve kaldığın durumu koru. |
+| **Derslerim** | Kendi derslerini veya çalışma alanlarını ad ve renkle düzenle. |
+| **Planlayıcı** | Görevlerine konu, açıklama, tarih, saat ve süre ekle; günün akışını ve saat çakışmalarını incele. |
+| **PDF Kütüphanesi** | Notlarını uygulamaya kopyala ve görüntüle. Dosya başına en fazla 25 MB. |
+| **İstatistikler** | Tamamladığın odak oturumlarını ve çalışma geçmişini takip et. |
+| **Görünüm** | Açık/koyu tema, ayarlanabilir cam yüzeyler ve animasyonlu alt navigasyon kullan. |
 
-## Kullanım
+Görev, ders ve PDF'leri basılı tutarak kaldırabilirsin; kısa tıklama normal onay penceresi açar. Bir dersi kaldırmak ona bağlı görevlerini, dosyalarını ve geçmişini silmez.
 
-- Ana Panel: gerçek kayıtlardan günlük hedef, son yedi gün, yaklaşan görevler. Yeni kurulum bilinçli olarak boş başlar; örnek ilerleme gösterilmez.
-- Derslerim: ad ve renk ile ders oluşturma.
-- Planlayıcı: ders, tarih ve görev ekleme; tamamlandı işaretleme, yeniden açma ve silme.
-- Çalışma Odası: 45/90/25 dakika odak, 15/30 dakika mola, 1–240 dakika özel odak süresi. Başlatma, duraklatma ve sıfırlama. Sıfırlama veya farklı süre seçimi mevcut oturumu iptal eder; kısmi süre istatistiğe eklenmez.
-- Sayaç her sayfadan erişilebilir. Sistem uykusu ve uygulamanın kapalı kaldığı zaman da geri sayıma dahildir. Süre dolduğunda bir odak kaydı oluşturulur; mola ve sonraki oturum kullanıcı tarafından başlatılır. Bitirme tarihi yerel takvim günüdür; gece yarısında oturum bölünmez.
-- Kütüphane: en fazla 25 MB PDF içe aktarma; dosya uygulama depolamasına kopyalanır. İçe aktarılan PDF çalışma odasında seçilen derse bağlanır. PDF görüntüleme, sistem WebView2 PDF desteğine bağlıdır; görüntülenmezse “PDF’yi kaydet” ile açılabilir.
-- Ayarlar: koyu/açık cam görünümü ve günlük hedef, PDF içermeyen JSON kayıt dışa aktarımı.
+## İndir ve başla
 
-## Kalıcı veri ve yedek
+1. [En güncel sürümü aç](https://github.com/ahmeterdi21/SutudyOS/releases/latest).
+2. **Assets** bölümünden `x64-setup.exe` ile biten StudyOS kurulum dosyasını indir.
+3. Kurulumu tamamla; ilk dersini ve görevini ekle.
 
-Masaüstünde veriler Tauri `app_data_dir()` altındaki `studyos.sqlite3` içinde saklanır. Windows'ta tipik konum `%APPDATA%\com.studyos.desktop\`. Ayarlar, dersler, görevler, sayaç ve oturumlar sürümlü bir JSON kaydı olarak; PDF içerikleri aynı SQLite veritabanında BLOB olarak tutulur. Sorgular parametrelidir. Kullanıcıdan dosya yolu alınıp okunmaz/yazılmaz.
+**Uygulamayı kullanmak için yazılım geliştirme araçları veya GitHub hesabı gerekmez.** `Source code`, `.sig` ve `latest.json` dosyaları normal kurulum için gerekli değildir.
 
-Tam yedek: uygulamayı kapatın, uygulama veri klasörünün tamamını (varsa `-wal` / `-shm` dosyaları dahil) başka yere kopyalayın. Geri yüklerken uygulama kapalı olmalıdır. JSON dışa aktarımının bu sürümde geri yükleme arayüzü yoktur. SQLite hataları görünür biçimde bildirilir; masaüstünde sessizce tarayıcı depolamasına geçilmez. Dosyalar şifrelenmez.
+Ayrıntılar: [Windows kurulumu ve ilk kullanım](docs/INSTALLATION.md).
 
-Tarayıcıda ayarlar localStorage, PDF'ler IndexedDB kullanır. Tarayıcı verilerini silmek önizleme kayıtlarını siler.
+## Verilerin sende
 
-## Doğrulama
+- Masaüstü kayıtları ve PDF kopyaları bilgisayarındaki SQLite veritabanında saklanır.
+- Uygulamanın temel özellikleri hesap veya çevrimiçi senkronizasyon gerektirmez.
+- PDF içe aktarma dosyanı uygulamaya kopyalar; özgün dosyanı değiştirmez.
+- Tam yedek için uygulama kapalıyken veri klasörünü kopyalayabilirsin. JSON dışa aktarımı PDF'leri içermez.
 
-```powershell
-npm test
-npm run build
-```
+Veri konumu, yedekleme ve sayaç davranışı: [kullanım rehberi](docs/INSTALLATION.md#yedekleme).
 
-Sayaç testleri: zaman sıçraması, yeniden açılma, tek seferlik oturum kaydı, mola hariç tutma, duraklatılmış süre ve yerel gün ataması.
+## Güncellemeler
 
-Manuel masaüstü kontrolü: bir ders/görev ekleyin, 1 dakikalık odak başlatın, başka sayfaya geçin, uygulamayı kapatıp yeniden açın. Süre sonunda tek oturum kaydı oluştuğunu doğrulayın. PDF yükleyip özgün dosyayı taşıdıktan sonra yeniden açılabildiğini ve tema/hedefin korunduğunu kontrol edin.
+StudyOS açılışta yeni sürümü kontrol eder. Yeni sürüm varsa uygulama içindeki **Güncelle** düğmesiyle kurulumu başlatabilirsin. Güncellemeler GitHub Releases üzerinden dağıtılır ve imzaları doğrulanır. Bağlantı olmadığında mevcut sürümle çalışmaya devam edebilirsin.
 
-## Kapsam ve sonraki adımlar
+[Son değişiklikler](CHANGELOG.md) · [Tüm sürümler](https://github.com/ahmeterdi21/SutudyOS/releases)
 
-Bu ilk prototipte ders adı düzenleme, PDF klasörleme/silme, sınav takvimi, not editörü, bildirim sesi, veri içe aktarma ve otomatik yedek yoktur. Cam etkisi uygulama içindeki CSS yüzeylerindedir; Windows masaüstünü gösteren yerel Acrylic/Mica değildir. Başlangıçta çevrimiçi servis veya hesap gerekmez. Paketleri kurmak ve ilk Rust derlemesi için internet gerekir.
+## Sırada ne var?
 
-Windows kurulum paketi bu ortamda Rust/Cargo bulunmadığı için doğrulanamamıştır; üretim dağıtımından önce yukarıdaki masaüstü kontrolünü yapın.
+Bir sonraki tasarım turunda modern Windows üst çubuğu, ekrana oturan pencere düzeni ve sistem genelinde tutarlı uygulama simgeleri hedefleniyor.
+
+[Yol haritasını incele](docs/ROADMAP.md) · [Bir özellik öner](https://github.com/ahmeterdi21/SutudyOS/issues/new?template=feature.yml)
+
+## Geliştirmeye katıl
+
+Bir hata bildirmek, kullanım deneyimini paylaşmak veya belgeyi iyileştirmek de katkıdır.
+
+- [Hata bildir veya fikir paylaş](https://github.com/ahmeterdi21/SutudyOS/issues/new/choose)
+- [Katkı rehberi](CONTRIBUTING.md)
+- [Kaynaktan çalıştırma ve testler](docs/DEVELOPMENT.md)
+
+**Teknolojiler:** Tauri 2 · React · TypeScript · Tailwind CSS · Rust · SQLite
+
+## Lisans ve atıflar
+
+Kullanılan arayüz bileşenlerinin kaynak ve atıf bilgileri [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) dosyasındadır. Uygulamanın tamamı için genel bir lisans henüz belirlenmemiştir.
+
+---
+
+<div align="center">Küçük adımlar, kalıcı alışkanlıklar. <strong>StudyOS.</strong></div>

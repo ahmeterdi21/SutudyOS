@@ -1,0 +1,39 @@
+name: Hata bildirimi
+description: StudyOS'ta karşılaştığınız bir sorunu bildirin.
+title: "[Hata] "
+body:
+  - type: markdown
+    attributes:
+      value: "Sorunu birlikte anlayabilmemiz için ayrıntıları paylaşın. Kişisel PDF, parola veya imza anahtarı eklemeyin."
+  - type: input
+    id: version
+    attributes:
+      label: StudyOS sürümü
+      placeholder: "Örn. v0.3.0"
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows sürümü
+      placeholder: "Örn. Windows 11, x64"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Sorun nasıl tekrar oluşuyor?
+      placeholder: "1. ... bölümünü açtım. 2. ... düğmesine bastım."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Ne olmasını bekliyordunuz, ne oldu?
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Hata mesajı veya ekran görüntüsü
+      description: "Varsa hata mesajını ekleyin. Görüntüdeki kişisel bilgileri önce gizleyin."
