@@ -43,6 +43,62 @@ fn get_pdf(app: tauri::AppHandle, id: String) -> Result<Vec<u8>, String> {
         })
         .map_err(|e| e.to_string())
 }
+#[tauri::command]
+fn delete_pdf(app: tauri::AppHandle, id: String, json: String) -> Result<(), String> {
+    let mut db = database(&app)?;
+    remove_pdf_transaction(&mut db, &id, &json)
+}
+fn remove_pdf_transaction(db: &mut Connection, id: &str, json: &str) -> Result<(), String> {
+    let tx = db.transaction().map_err(|e| e.to_string())?;
+    tx.execute("DELETE FROM documents WHERE id=?1", [id])
+        .map_err(|e| e.to_string())?;
+    tx.execute(
+        "INSERT INTO state(id,json) VALUES(1,?1) ON CONFLICT(id) DO UPDATE SET json=excluded.json",
+        [json],
+    )
+    .map_err(|e| e.to_string())?;
+    tx.commit().map_err(|e| e.to_string())
+}
+#[cfg(test)]
+mod deletion_tests {
+    use super::*;
+    fn fixture() -> Connection {
+        let db = Connection::open_in_memory().unwrap();
+        db.execute_batch("CREATE TABLE state(id INTEGER PRIMARY KEY, json TEXT NOT NULL); CREATE TABLE documents(id TEXT PRIMARY KEY,bytes BLOB); INSERT INTO state VALUES(1,'before'); INSERT INTO documents VALUES('pdf',X'255044462D');").unwrap();
+        db
+    }
+    #[test]
+    fn removes_bytes_and_updates_metadata_together() {
+        let mut db = fixture();
+        remove_pdf_transaction(&mut db, "pdf", "after").unwrap();
+        assert_eq!(
+            db.query_row("SELECT count(*) FROM documents", [], |r| r.get::<_, i64>(0))
+                .unwrap(),
+            0
+        );
+        assert_eq!(
+            db.query_row("SELECT json FROM state", [], |r| r.get::<_, String>(0))
+                .unwrap(),
+            "after"
+        );
+    }
+    #[test]
+    fn restores_pdf_when_metadata_write_fails() {
+        let mut db = fixture();
+        db.execute_batch("CREATE TRIGGER reject_update BEFORE UPDATE ON state BEGIN SELECT RAISE(ABORT,'test write failure'); END;").unwrap();
+        assert!(remove_pdf_transaction(&mut db, "pdf", "after").is_err());
+        assert_eq!(
+            db.query_row("SELECT count(*) FROM documents", [], |r| r.get::<_, i64>(0))
+                .unwrap(),
+            1
+        );
+        assert_eq!(
+            db.query_row("SELECT json FROM state", [], |r| r.get::<_, String>(0))
+                .unwrap(),
+            "before"
+        );
+    }
+}
 fn main() {
     tauri::Builder::default()
         .plugin(tauri_plugin_updater::Builder::new().build())
@@ -52,6 +108,7 @@ fn main() {
             save_state,
             put_pdf,
             get_pdf,
+            delete_pdf,
             updates::check_update,
             updates::install_update
         ])
