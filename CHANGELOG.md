@@ -2,6 +2,18 @@
 
 # Changelog
 
+## v0.4.0 — November 8, 2026
+
+- Modern integrated window controls replace the native Windows title bar.
+- Maximized startup with the Windows taskbar kept accessible.
+- Consistent geometric logo for the window, executable and installer.
+- Theme-aware pointer spotlight and subtle 3D tilt across cards, with reduced-motion support.
+- Optional study-plan assistant: ChatGPT account connection and a personal Gemini API key alternative.
+- Review shared information, edit suggested tasks, and explicitly save selected tasks to Planner.
+- Windows-encrypted credentials, bounded plan validation and clear quota/error handling.
+
+**Assistant preview:** Live account authorization and plan generation still require user verification. ChatGPT eligibility and provider quotas apply; Gemini free-tier availability and billing depend on the user's project. Core study features remain usable without an AI connection. [Assistant setup](docs/AI-SETUP.md).
+
 ## v0.3.0 — November 8, 2026
 
 - Adjustable glass dashboard with saved appearance preferences.

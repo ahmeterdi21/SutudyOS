@@ -1,6 +1,8 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 use rusqlite::{params, Connection};
 use tauri::Manager;
+mod ai;
+mod ai_vault;
 mod updates;
 fn database(app: &tauri::AppHandle) -> Result<Connection, String> {
     let dir = app.path().app_data_dir().map_err(|e| e.to_string())?;
@@ -101,9 +103,25 @@ mod deletion_tests {
 }
 fn main() {
     tauri::Builder::default()
+        .setup(|app| {
+            if let Some(window) = app.get_webview_window("main") {
+                window.set_icon(tauri::include_image!("icons/128x128.png"))?;
+            }
+            Ok(())
+        })
         .plugin(tauri_plugin_updater::Builder::new().build())
+        .manage(ai::Service::default())
         .manage(updates::Pending(std::sync::Mutex::new(None)))
         .invoke_handler(tauri::generate_handler![
+            ai::ai_status,
+            ai::ai_save_gemini,
+            ai::ai_disconnect,
+            ai::ai_open_help,
+            ai::ai_login_start,
+            ai::ai_login_finish,
+            ai::ai_login_cancel,
+            ai::ai_models,
+            ai::ai_plan,
             load_state,
             save_state,
             put_pdf,

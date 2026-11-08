@@ -2,6 +2,18 @@
 
 # Sürüm geçmişi
 
+## v0.4.0 — 8 Kasım 2026
+
+- Windows başlık çubuğu yerine tasarımla bütünleşen pencere düğmeleri.
+- Görev çubuğunu koruyan büyütülmüş açılış.
+- Pencere, uygulama ve kurulum için aynı geometrik logo.
+- Kartlarda temaya uyumlu spotlight ve hafif 3D hareket; azaltılmış hareket desteği.
+- İsteğe bağlı çalışma planı asistanı: ChatGPT hesabı ve kişisel Gemini anahtarı alternatifi.
+- Gönderilecek bilgileri inceleme, önerilen görevleri düzenleme ve seçerek planlayıcıya kaydetme.
+- Windows ile şifrelenen bağlantı bilgileri, tarih/süre doğrulaması ve kota/hata mesajları.
+
+**Asistan önizlemesi:** Canlı hesap bağlantısı ve plan üretimi kullanıcı tarafından henüz doğrulanmalıdır. ChatGPT hesabının uygunluğu ve sağlayıcı kotaları geçerlidir; Gemini ücretsiz katmanı ve olası ücretler kullanıcının projesine bağlıdır. Temel çalışma özellikleri yapay zekâ bağlantısı gerektirmez. [Asistan rehberi](docs/AI-SETUP.tr.md).
+
 ## v0.3.0 — 8 Kasım 2026
 
 - Ayarlanabilir cam dashboard ve kaydedilen görünüm tercihleri.

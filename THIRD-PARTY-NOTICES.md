@@ -29,3 +29,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Interactive card reference
+
+`src/components/SpotlightCard.tsx` and `spotlight-card.css` adapt the interaction concept from the user-supplied InteractiveTravelCard by kavikatiyar: https://21st.dev/r/kavikatiyar/3d-card . StudyOS uses local lesson content, theme-aware color surfaces, pointer spotlight, reduced tilt, keyboard focus and reduced-motion support. The travel sample image and external destination are not included. No additional animation dependency was added.

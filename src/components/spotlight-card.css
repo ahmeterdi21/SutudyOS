@@ -1,0 +1,9 @@
+.spotlight-card{position:relative;isolation:isolate;overflow:hidden;transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));transition:transform .22s ease-out,box-shadow .22s ease-out;min-height:240px;background-image:radial-gradient(ellipse at 100% 0%,color-mix(in srgb,var(--card-color) 17%,transparent),transparent 65%)}
+.spotlight-card::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0;transition:opacity .25s;background:radial-gradient(340px circle at var(--spot-x,50%) var(--spot-y,30%),color-mix(in srgb,var(--card-color) 24%,transparent),transparent 70%)}
+.spotlight-card::after{content:"";position:absolute;right:-30px;top:20px;width:150px;height:150px;border:1px solid color-mix(in srgb,var(--card-color) 20%,transparent);border-radius:35px;transform:rotate(30deg);pointer-events:none;z-index:0}
+.spotlight-card[data-lit=true]::before,.spotlight-card:focus-within::before{opacity:1}
+.spotlight-card:focus-within{outline:2px solid var(--accent);outline-offset:3px}
+.spotlight-content{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;align-items:stretch;gap:10px}
+.spotlight-content .course-heading{margin-bottom:8px}.spotlight-content h2{margin:0;overflow-wrap:anywhere}.spotlight-content p{margin:0 0 16px}.spotlight-content>button{margin-top:auto;align-self:stretch;justify-content:center;background:color-mix(in srgb,var(--card-color) 12%,transparent)!important;border-color:color-mix(in srgb,var(--card-color) 30%,var(--line))!important}
+@media(prefers-reduced-motion:reduce),(hover:none){.spotlight-card{transform:none;transition:none}.spotlight-card::before{transition:none}}
+@media(forced-colors:active){.spotlight-card::before,.spotlight-card::after{display:none}}

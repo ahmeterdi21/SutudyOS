@@ -13,3 +13,7 @@ src-tauri/target/
 *.db
 *.pfx
 *.p12
+
+# Protected local AI credentials and interrupted writes
+*.dpapi
+ai-credentials.tmp

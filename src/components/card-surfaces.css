@@ -1,0 +1,7 @@
+/* Match existing geometry and colors; decorative layers never intercept controls. */
+.app main :is(.panel:not(.spotlight-card),.lesson-mini,.library-item,.update-panel){position:relative;isolation:isolate;transition:transform .2s ease-out}
+.app main :is(.panel:not(.spotlight-card),.lesson-mini,.library-item,.update-panel)::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:2;opacity:0;transition:opacity .2s;background:radial-gradient(360px circle at var(--surface-x,50%) var(--surface-y,30%),color-mix(in srgb,var(--accent) 13%,transparent),transparent 75%)}
+.app main [data-card-lit=true]{transform:perspective(1400px) rotateX(var(--surface-rx,0deg)) rotateY(var(--surface-ry,0deg))}
+.app main [data-card-lit=true]::before{opacity:1}
+@media(prefers-reduced-motion:reduce),(hover:none){.app main [data-card-lit=true]{transform:none}.app main :is(.panel,.lesson-mini,.library-item,.update-panel){transition:none}.app main [data-card-lit]::before{display:none}}
+@media(forced-colors:active){.app main [data-card-lit]::before{display:none}}

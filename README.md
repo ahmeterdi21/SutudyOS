@@ -16,11 +16,13 @@ A personal Windows study workspace that keeps your records on your computer. No 
 
 > **Language:** The application interface is currently in **Turkish**. This repository provides English and Turkish documentation; an English app interface is not included in the current release.
 
+> **v0.4.0:** Modern window controls, spotlight cards and an optional study-plan assistant. AI connections are a preview; live account verification is still pending. [What's new](CHANGELOG.md) · [Assistant setup](docs/AI-SETUP.md).
+
 ## Build your own study routine
 
 StudyOS is being developed for students, exam preparation and anyone building a consistent learning habit. Add your subjects, organize your day into study blocks, complete focus sessions and see your progress.
 
-Core features work offline. Subjects, tasks and imported PDFs are kept in local storage dedicated to the application. An internet connection is used to check for and download updates.
+Core features work offline. Subjects, tasks and imported PDFs are kept in local storage dedicated to the application. An internet connection is used for updates and, when enabled, the optional AI assistant.
 
 The banner above is an illustration, not an application screenshot. It contains no personal records. StudyOS is in early development and grows through small updates.
 
@@ -34,7 +36,8 @@ The banner above is an illustration, not an application screenshot. It contains 
 | **Planner** | Add topics, notes, dates, start times and durations; review the day's schedule and overlapping tasks. |
 | **PDF Library** | Copy and view your notes inside the app. Up to 25 MB per file. |
 | **Statistics** | Review completed focus sessions and your study history. |
-| **Appearance** | Choose light or dark mode, adjustable glass surfaces and animated bottom navigation. |
+| **Appearance** | Light/dark mode, adjustable glass, spotlight cards, animated navigation and integrated window controls. |
+| **Assistant — preview** | Connect ChatGPT or your own Gemini key; review, edit and add suggested study tasks. Eligibility and quotas apply. |
 
 Press and hold to remove a task, subject or PDF. A short click opens a standard confirmation dialog. Removing a subject preserves its linked tasks, files and history.
 
