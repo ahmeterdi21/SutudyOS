@@ -1,0 +1,39 @@
+name: StudyOS Windows Release
+on:
+  push:
+    tags: ['v[0-9]*']
+permissions:
+  contents: write
+concurrency:
+  group: studyos-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - run: npm ci
+      - run: npm test
+      - name: Configure signed update channel
+        run: node scripts/configure-release.mjs
+        env:
+          STUDYOS_RELEASE_REPOSITORY: ${{ github.repository }}
+          STUDYOS_UPDATE_PUBLIC_KEY: ${{ vars.STUDYOS_UPDATE_PUBLIC_KEY }}
+      - name: Build draft release
+        uses: tauri-apps/tauri-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+        with:
+          tagName: ${{ github.ref_name }}
+          releaseName: StudyOS v__VERSION__
+          releaseBody: 'Windows kurulum paketi ve imzalı güncelleme dosyaları.'
+          releaseDraft: true
+          prerelease: false
+          args: --config src-tauri/tauri.release.conf.json
