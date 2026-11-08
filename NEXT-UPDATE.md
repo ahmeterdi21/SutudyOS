@@ -23,3 +23,7 @@ Kullanıcı v0.3.0 GitHub Actions yayınının ve uygulama içi güncellemenin b
 ## Asistan — geliştirme sürümüne eklendi
 
 ChatGPT bağlantısı ve kişisel Gemini anahtarı alternatifi, plan önerisi, düzenleme ve onayla planlayıcıya kayıt eklendi. Kullanıcının ilk canlı hesap bağlantısını ve plan üretimini denemesi gerekiyor. Ayrıntılar: docs/AI-SETUP.tr.md.
+
+## Acil düzeltme v0.4.1
+
+Kapatma için eksik core:window:allow-destroy izni eklendi. Kayıt sonrası doğrudan destroy çağrısıyla ikinci kapatma olayı kaldırıldı. Yayın etiketi v0.4.1 olmalıdır.

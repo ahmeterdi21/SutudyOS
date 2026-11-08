@@ -20,9 +20,9 @@ export function WindowChrome({children,beforeClose,onError}:{children:ReactNode;
   track(win.onFocusChanged(({payload})=>{if(!disposed)setFocused(payload)}));
   track(win.onCloseRequested(createCloseCoordinator(
    ()=>callbacks.current.beforeClose(),
-   async()=>{if(!disposed)await win.close()},
+   async()=>{if(!disposed)await win.destroy()},
    busy=>{closeLock.current=busy;if(!disposed)setClosing(busy)},
-   e=>{if(!disposed)callbacks.current.onError(`Kayıtlar kaydedilemediği için pencere açık bırakıldı. ${String(e)}`)},
+   e=>{if(!disposed)callbacks.current.onError(`Kapatma işlemi tamamlanamadı. Pencere açık bırakıldı. ${String(e)}`)},
   )));
   return()=>{disposed=true;stops.forEach(stop=>stop())};
  },[]);

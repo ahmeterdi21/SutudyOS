@@ -2,6 +2,12 @@
 
 # Sürüm geçmişi
 
+## v0.4.1 — Pencere kapatma düzeltmesi
+
+- Kayıt sonrası pencerenin kapanmasını engelleyen eksik Tauri izni eklendi.
+- Bekleyen kayıtlar tamamlanınca ikinci kapatma isteği yerine pencere doğrudan kapatılır.
+- Kayıt başarısız olursa pencere açık kalmaya devam eder.
+
 ## v0.4.0 — 8 Kasım 2026
 
 - Windows başlık çubuğu yerine tasarımla bütünleşen pencere düğmeleri.

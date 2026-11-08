@@ -2,6 +2,12 @@
 
 # Changelog
 
+## v0.4.1 — Window-close hotfix
+
+- Fixed a missing Tauri permission that prevented the window from closing after saving.
+- After pending writes complete, the window is destroyed directly instead of requesting another close event.
+- Save failures continue to keep the window open.
+
 ## v0.4.0 — November 8, 2026
 
 - Modern integrated window controls replace the native Windows title bar.
