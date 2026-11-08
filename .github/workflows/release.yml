@@ -19,6 +19,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: npm ci
       - run: npm test
+      - run: node --test scripts/tests/configure-release.check.mjs
       - name: Configure signed update channel
         run: node scripts/configure-release.mjs
         env:
