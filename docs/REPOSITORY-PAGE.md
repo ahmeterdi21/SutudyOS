@@ -9,7 +9,7 @@ Depo ana sayfasında sağdaki **About** yanındaki dişliye tıklayın.
 **Description** için hazır metin:
 
 ```text
-Windows için yerel çalışma alanı: çalışma sayacı, ders planlayıcı, PDF kütüphanesi ve ayarlanabilir cam arayüz. Tauri + React + SQLite.
+Local-first Windows study workspace with a focus timer, daily planner, PDF library and adjustable glass UI. Built with Tauri, React and SQLite. App UI: Turkish; docs: English and Turkish.
 ```
 
 **Website:** https://github.com/ahmeterdi21/SutudyOS/releases/latest

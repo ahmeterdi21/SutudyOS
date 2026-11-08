@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Kurulum ve kullanım rehberi
+  - name: Installation and usage / Kurulum ve kullanım
     url: https://github.com/ahmeterdi21/SutudyOS/blob/main/docs/INSTALLATION.md
-    about: Kurulum, güncelleme, ilk kullanım ve yedekleme adımları.
+    about: English and Turkish guides for installation, updates and backups.

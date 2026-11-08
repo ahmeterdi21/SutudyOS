@@ -1,86 +1,89 @@
 <div align="center">
 
-<img src="docs/assets/studyos-cover.svg" alt="StudyOS — Kendi ritminde, bir adım ileri. Planlayıcı, odak sayacı ve PDF kütüphanesi." width="100%" />
+[**English**](README.md) · [Türkçe](README.tr.md)
+
+<img src="docs/assets/studyos-cover-en.svg" alt="StudyOS — At your own pace. One step further. A daily planner, focus timer and PDF library." width="100%" />
 
 # StudyOS Desktop
 
-**Planların, odak süren ve ders notların — tek bir yerde.**
+**Your plans, focus time and study notes — together.**
 
-Windows için hesabını oluşturmadan kullanabileceğin, verilerini bilgisayarında saklayan kişisel çalışma alanı.
+A personal Windows study workspace that keeps your records on your computer. No account required.
 
-[**Windows için indir**](https://github.com/ahmeterdi21/SutudyOS/releases/latest) · [Kurulum ve kullanım](docs/INSTALLATION.md) · [Sürüm geçmişi](CHANGELOG.md) · [Geri bildirim](https://github.com/ahmeterdi21/SutudyOS/issues/new/choose)
-
-A local-first Windows study workspace with a focus timer, daily planner and personal PDF library. The current interface is in Turkish.
+[**Download for Windows**](https://github.com/ahmeterdi21/SutudyOS/releases/latest) · [Getting started](docs/INSTALLATION.md) · [Changelog](CHANGELOG.md) · [Feedback](https://github.com/ahmeterdi21/SutudyOS/issues/new/choose)
 
 </div>
 
-## Kendi çalışma düzenini oluştur
+> **Language:** The application interface is currently in **Turkish**. This repository provides English and Turkish documentation; an English app interface is not included in the current release.
 
-StudyOS; öğrenciler, sınava hazırlananlar ve kendine bir çalışma alışkanlığı kurmak isteyenler için geliştiriliyor. Derslerini ekle, gününü çalışma bloklarına ayır, odak oturumlarını tamamla ve ilerlemeni gör.
+## Build your own study routine
 
-Temel özellikler çevrimdışı çalışır. Derslerin, görevlerin ve içe aktardığın PDF'ler uygulamaya özel yerel depolamada tutulur. Güncelleme kontrolü için internet bağlantısı kullanılır.
+StudyOS is being developed for students, exam preparation and anyone building a consistent learning habit. Add your subjects, organize your day into study blocks, complete focus sessions and see your progress.
 
-> Üstteki görsel, kişisel veri içermeyen temsili bir tanıtımdır. Güncel sürüm erken geliştirme aşamasındadır; yeni özellikler küçük güncellemelerle eklenir.
+Core features work offline. Subjects, tasks and imported PDFs are kept in local storage dedicated to the application. An internet connection is used to check for and download updates.
 
-## Neler yapabilirsin?
+The banner above is an illustration, not an application screenshot. It contains no personal records. StudyOS is in early development and grows through small updates.
 
-| Alan | Yapabileceklerin |
+## What you can do
+
+| Area | Features |
 |---|---|
-| **Ana Panel** | Günlük hedefini, tamamlanan odak süreni ve son yedi günlük çalışma ritmini gör. |
-| **Çalışma Odası** | Hazır veya özel sürelerle odaklan; sayacı duraklat, sayfa değiştir ve kaldığın durumu koru. |
-| **Derslerim** | Kendi derslerini veya çalışma alanlarını ad ve renkle düzenle. |
-| **Planlayıcı** | Görevlerine konu, açıklama, tarih, saat ve süre ekle; günün akışını ve saat çakışmalarını incele. |
-| **PDF Kütüphanesi** | Notlarını uygulamaya kopyala ve görüntüle. Dosya başına en fazla 25 MB. |
-| **İstatistikler** | Tamamladığın odak oturumlarını ve çalışma geçmişini takip et. |
-| **Görünüm** | Açık/koyu tema, ayarlanabilir cam yüzeyler ve animasyonlu alt navigasyon kullan. |
+| **Dashboard** | See your daily goal, completed focus time and study activity over the last seven days. |
+| **Study Room** | Use preset or custom focus durations; pause the timer and keep its state across pages and restarts. |
+| **Subjects** | Create subjects or learning areas with a name and color. |
+| **Planner** | Add topics, notes, dates, start times and durations; review the day's schedule and overlapping tasks. |
+| **PDF Library** | Copy and view your notes inside the app. Up to 25 MB per file. |
+| **Statistics** | Review completed focus sessions and your study history. |
+| **Appearance** | Choose light or dark mode, adjustable glass surfaces and animated bottom navigation. |
 
-Görev, ders ve PDF'leri basılı tutarak kaldırabilirsin; kısa tıklama normal onay penceresi açar. Bir dersi kaldırmak ona bağlı görevlerini, dosyalarını ve geçmişini silmez.
+Press and hold to remove a task, subject or PDF. A short click opens a standard confirmation dialog. Removing a subject preserves its linked tasks, files and history.
 
-## İndir ve başla
+## Download and get started
 
-1. [En güncel sürümü aç](https://github.com/ahmeterdi21/SutudyOS/releases/latest).
-2. **Assets** bölümünden `x64-setup.exe` ile biten StudyOS kurulum dosyasını indir.
-3. Kurulumu tamamla; ilk dersini ve görevini ekle.
+1. Open the [latest release](https://github.com/ahmeterdi21/SutudyOS/releases/latest).
+2. Under **Assets**, download the StudyOS installer ending in `x64-setup.exe`.
+3. Install the app, then create your first subject and task.
 
-**Uygulamayı kullanmak için yazılım geliştirme araçları veya GitHub hesabı gerekmez.** `Source code`, `.sig` ve `latest.json` dosyaları normal kurulum için gerekli değildir.
+**You do not need development tools or a GitHub account to use StudyOS.** The `Source code`, `.sig` and `latest.json` files are not needed for a normal installation.
 
-Ayrıntılar: [Windows kurulumu ve ilk kullanım](docs/INSTALLATION.md).
+[Windows installation and first steps](docs/INSTALLATION.md).
 
-## Verilerin sende
+## Your records stay on your computer
 
-- Masaüstü kayıtları ve PDF kopyaları bilgisayarındaki SQLite veritabanında saklanır.
-- Uygulamanın temel özellikleri hesap veya çevrimiçi senkronizasyon gerektirmez.
-- PDF içe aktarma dosyanı uygulamaya kopyalar; özgün dosyanı değiştirmez.
-- Tam yedek için uygulama kapalıyken veri klasörünü kopyalayabilirsin. JSON dışa aktarımı PDF'leri içermez.
+- Desktop records and PDF copies are stored in a local SQLite database.
+- Core features do not require an account or cloud synchronization.
+- Importing a PDF copies it into the app; the original file is not modified.
+- Back up the complete data folder while the app is closed. JSON exports do not include PDFs.
 
-Veri konumu, yedekleme ve sayaç davranışı: [kullanım rehberi](docs/INSTALLATION.md#yedekleme).
+See the [usage guide](docs/INSTALLATION.md#backups) for storage, backup and timer details.
 
-## Güncellemeler
+## Updates
 
-StudyOS açılışta yeni sürümü kontrol eder. Yeni sürüm varsa uygulama içindeki **Güncelle** düğmesiyle kurulumu başlatabilirsin. Güncellemeler GitHub Releases üzerinden dağıtılır ve imzaları doğrulanır. Bağlantı olmadığında mevcut sürümle çalışmaya devam edebilirsin.
+StudyOS checks for a new release at startup. When one is available, you can start installation from the app. Updates are distributed through GitHub Releases and their signatures are verified. You can continue using the installed version while offline.
 
-[Son değişiklikler](CHANGELOG.md) · [Tüm sürümler](https://github.com/ahmeterdi21/SutudyOS/releases)
+[Recent changes](CHANGELOG.md) · [All releases](https://github.com/ahmeterdi21/SutudyOS/releases)
 
-## Sırada ne var?
+## What's next?
 
-Bir sonraki tasarım turunda modern Windows üst çubuğu, ekrana oturan pencere düzeni ve sistem genelinde tutarlı uygulama simgeleri hedefleniyor.
+The next design iteration targets a modern Windows title bar, a window layout that fits the screen and consistent application icons across Windows.
 
-[Yol haritasını incele](docs/ROADMAP.md) · [Bir özellik öner](https://github.com/ahmeterdi21/SutudyOS/issues/new?template=feature.yml)
+[Roadmap](docs/ROADMAP.md) · [Suggest a feature](https://github.com/ahmeterdi21/SutudyOS/issues/new?template=feature.yml)
 
-## Geliştirmeye katıl
+## Get involved
 
-Bir hata bildirmek, kullanım deneyimini paylaşmak veya belgeyi iyileştirmek de katkıdır.
+Bug reports, real-world feedback and documentation improvements are all useful contributions.
 
-- [Hata bildir veya fikir paylaş](https://github.com/ahmeterdi21/SutudyOS/issues/new/choose)
-- [Katkı rehberi](CONTRIBUTING.md)
-- [Kaynaktan çalıştırma ve testler](docs/DEVELOPMENT.md)
+- [Report a bug or share an idea](https://github.com/ahmeterdi21/SutudyOS/issues/new/choose)
+- [Contribution guide](CONTRIBUTING.md)
+- [Run from source and test](docs/DEVELOPMENT.md)
+- [Documentation languages](docs/LANGUAGES.md)
 
-**Teknolojiler:** Tauri 2 · React · TypeScript · Tailwind CSS · Rust · SQLite
+**Built with:** Tauri 2 · React · TypeScript · Tailwind CSS · Rust · SQLite
 
-## Lisans ve atıflar
+## Licensing and credits
 
-Kullanılan arayüz bileşenlerinin kaynak ve atıf bilgileri [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) dosyasındadır. Uygulamanın tamamı için genel bir lisans henüz belirlenmemiştir.
+UI component sources and credits are listed in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). A project-wide license has not yet been selected.
 
 ---
 
-<div align="center">Küçük adımlar, kalıcı alışkanlıklar. <strong>StudyOS.</strong></div>
+<div align="center">Small steps. Lasting habits. <strong>StudyOS.</strong></div>

@@ -1,24 +1,26 @@
-# Sürüm geçmişi
+**English** · [Türkçe](CHANGELOG.tr.md)
 
-## v0.3.0 — 8 Kasım 2026
+# Changelog
 
-- Ayarlanabilir cam dashboard ve kaydedilen görünüm tercihleri.
-- Animasyonlu alt navigasyon ve sürekli erişilebilir çalışma sayacı.
-- Yeni geometrik logo, cam efektli açılış ve sol üst logoya geçiş.
-- Görev, ders ve PDF'lerde basılı tutarak silme; kısa tıklamayla onay alternatifi.
-- Görevler için konu, açıklama, saat, süre ve çakışma gösterimi.
-- Ders kaldırıldığında bağlı kayıtların korunması ve PDF silmede atomik SQLite işlemi.
-- Geliştirme sırasında boş ekran ve geçersiz logo ölçeği sorunlarının düzeltilmesi.
+## v0.3.0 — November 8, 2026
 
-## v0.2.1 — 8 Kasım 2026
+- Adjustable glass dashboard with saved appearance preferences.
+- Animated bottom navigation and a study timer accessible across pages.
+- New geometric logo, glass reveal at startup and a transition to the top-left logo.
+- Hold-to-delete for tasks, subjects and PDFs, with a short-click confirmation alternative.
+- Task topics, notes, start times, durations and overlap indicators.
+- Linked records preserved when a subject is removed; atomic SQLite operations for PDF deletion.
+- Fixes for blank screens during development and invalid logo scaling.
 
-- GitHub Releases üzerinden imzalı uygulama içi güncelleme altyapısı.
-- Açık anahtarın kurulum paketinin imza ayarına aktarılmasının düzeltilmesi.
-- Yeni sürüm bildirimi ve kurulum öncesinde kayıtların kaydedilmesi.
+## v0.2.1 — November 8, 2026
 
-## v0.1.0 — İlk prototip
+- Signed in-app update support through GitHub Releases.
+- Fixed public-key configuration for installer signing.
+- New-version notifications and saving records before installation.
 
-- Ana panel, çalışma odası, dersler, planlayıcı, PDF kütüphanesi ve istatistikler.
-- Koyu/açık tema ve yerel SQLite kayıtları.
+## v0.1.0 — Initial prototype
 
-[Tüm yayımlanmış sürümler](https://github.com/ahmeterdi21/SutudyOS/releases).
+- Dashboard, study room, subjects, planner, PDF library and statistics.
+- Light/dark themes and local SQLite storage.
+
+[All published releases](https://github.com/ahmeterdi21/SutudyOS/releases).

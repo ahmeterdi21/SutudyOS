@@ -1,40 +1,44 @@
-# StudyOS kurulumu ve ilk kullanım
+**English** · [Türkçe](INSTALLATION.tr.md)
 
-## Windows'a kurulum
+# Install StudyOS and get started
 
-1. [En güncel sürümü açın](https://github.com/ahmeterdi21/SutudyOS/releases/latest).
-2. **Assets** bölümünde adı `x64-setup.exe` ile biten StudyOS kurucusunu indirin.
-3. Kurucuyu çalıştırıp yönergeleri izleyin. Açık bir StudyOS penceresi varsa önce kapatın.
-4. StudyOS'u Başlat menüsünden veya kısayoldan açın.
+The current app interface is in Turkish. This guide includes the Turkish control names so you can find them in the app.
 
-`.sig`, `latest.json` ve **Source code** dosyaları normal kurulum için gerekli değildir. Uygulamayı kullanmak için Node.js, Rust veya bir GitHub hesabı kurmanız gerekmez. Kaynaktan geliştirmek isteyenler için [geliştirme rehberi](DEVELOPMENT.md) ayrıdır.
+## Install on Windows
 
-Windows x64 için paket hazırlanır. Uygulama Microsoft Edge WebView2 kullanır. Uygulama açılmıyorsa hata mesajıyla birlikte [sorun bildirin](https://github.com/ahmeterdi21/SutudyOS/issues/new/choose). Windows güvenlik bildirimi görülürse kaynağı ve indirdiğiniz dosyayı kontrol edin; güncelleme imzası, Windows kod imzalama sertifikasıyla aynı şey değildir.
+1. Open the [latest release](https://github.com/ahmeterdi21/SutudyOS/releases/latest).
+2. Under **Assets**, download the installer ending in `x64-setup.exe`.
+3. Close any running StudyOS window, launch the installer and follow its instructions.
+4. Open StudyOS from the Start menu or a shortcut.
 
-## İlk beş dakika
+You do not need `.sig`, `latest.json` or **Source code** for normal installation. Using the app does not require Node.js, Rust or a GitHub account. See the separate [development guide](DEVELOPMENT.md) to run from source.
 
-1. **Derslerim:** Kendi dersinizi veya çalışma alanınızı ekleyin; örneğin Matematik, Yabancı Dil veya Kitap Okuma.
-2. **Planlayıcı:** Tarih, konu, başlangıç saati ve süreyle ilk görevinizi oluşturun.
-3. **Çalışma Odası:** Dersi seçin, bir odak süresi belirleyip sayacı başlatın.
-4. **Kütüphane:** PDF notlarınızı uygulamaya kopyalayın. Dosya başına sınır 25 MB'dır.
-5. **Cam görünümü:** Üst çubuktan kendi görünümünüzü ayarlayın. Açık/koyu tema da kullanılabilir.
+The installer targets Windows x64. StudyOS uses Microsoft Edge WebView2. If it does not open, [report the problem](https://github.com/ahmeterdi21/SutudyOS/issues/new/choose) with the error message. An updater signature is different from a Windows code-signing certificate; Windows may still display a security notification. Check the download source before proceeding.
 
-Yeni kurulum boş başlar. Grafiklerde ilerleme görmeniz için odak oturumlarını tamamlamanız gerekir. Planladığınız süre, gerçek çalışma süresinden ayrıdır. Görevi tamamlandı işaretlemek otomatik olarak bir sayaç oturumu oluşturmaz.
+## Your first five minutes
 
-## Silme ve kayıtlar
+1. **Subjects — Derslerim:** Add a subject or learning area, such as Mathematics, Languages or Reading.
+2. **Planner — Planlayıcı:** Create a task with a date, topic, start time and duration.
+3. **Study Room — Çalışma Odası:** Choose the subject and a focus duration, then start the timer with **Başlat**.
+4. **Library — Kütüphane:** Import PDF notes. The per-file limit is 25 MB.
+5. **Glass appearance — Cam görünümü:** Adjust the appearance from the top bar. Light and dark themes are available too.
 
-Görev, ders ve PDF düğmelerini iki saniye basılı tutarak kaldırabilirsiniz. Kısa tıklama normal onay penceresi açar. Ders kaldırıldığında ona bağlı görevler, dosyalar ve geçmiş korunur. PDF kaldırma yalnızca uygulamadaki kopyayı etkiler; içe aktardığınız özgün dosyaya dokunmaz.
+A new installation starts empty. Complete focus sessions to populate the charts. Planned task duration and measured focus time are separate: marking a task complete does not create a timer session.
 
-Sayaç sayfa değişikliklerinde ve yeniden açıldığında durumunu korur. Sistem uykusu ve uygulamanın kapalı kaldığı zaman geri sayıma dahildir. Yalnızca tamamlanan odak oturumları istatistiklere eklenir; sıfırlanan kısmi süreler eklenmez.
+## Removing items and keeping records
 
-## Güncelleme
+Hold a task, subject or PDF removal button for two seconds to confirm removal. A short click opens a standard confirmation dialog. Removing a subject preserves its linked tasks, files and history. Removing a PDF deletes the app's copy, not your original file.
 
-Uygulama açılışta yayımlanmış yeni sürümü kontrol eder. Güncelleme varsa **Güncelle** düğmesini kullanın. Çalışan sayacı önce duraklatın. **Ayarlar → Kontrol et** ile elle de kontrol edebilirsiniz.
+The timer retains its state across pages and app restarts. Time spent asleep or with the app closed counts toward the countdown. Only completed focus sessions appear in statistics; resetting a partial session does not record that time.
 
-İnternet bağlantısı olmadan temel çalışma özellikleri kullanılabilir; güncelleme kontrolü ve indirme için bağlantı gerekir. Güncellemeler GitHub Releases üzerinden dağıtılır ve imzaları doğrulanır. GitHub'daki taslak sürümler güncelleme olarak görünmez.
+## Updates
 
-## Yedekleme
+The app checks for published updates at startup. Select **Güncelle** to install one, or use **Ayarlar → Kontrol et** to check manually. Pause a running timer before installation.
 
-Masaüstü verileri ve içe aktarılan PDF'ler tipik olarak `%APPDATA%\com.studyos.desktop\` klasöründeki SQLite veritabanında bulunur.
+Core features work offline. Update checks and downloads require a connection. Updates are distributed through GitHub Releases and their signatures are verified. Draft releases do not appear in update checks.
 
-Tam yedek için uygulamayı kapatın ve bu klasörün tamamını güvenli bir yere kopyalayın. Geri yükleme de uygulama kapalıyken yapılmalıdır. Ayarlar'daki JSON dışa aktarımı PDF'leri içermez ve bu sürümde JSON içe aktarma arayüzü yoktur. Veritabanı şifrelenmez.
+## Backups
+
+Desktop records and imported PDFs are stored in a SQLite database, typically under `%APPDATA%\com.studyos.desktop\`.
+
+Close the app and copy the entire data folder to a safe location for a full backup. Restore it only while the app is closed. The JSON export in Settings does not include PDFs, and this version has no JSON import interface. The database is not encrypted.

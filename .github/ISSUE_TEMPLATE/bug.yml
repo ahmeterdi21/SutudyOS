@@ -1,39 +1,39 @@
-name: Hata bildirimi
-description: StudyOS'ta karşılaştığınız bir sorunu bildirin.
-title: "[Hata] "
+name: Bug report / Hata bildirimi
+description: Report a StudyOS issue in English or Turkish.
+title: "[Bug] "
 body:
   - type: markdown
     attributes:
-      value: "Sorunu birlikte anlayabilmemiz için ayrıntıları paylaşın. Kişisel PDF, parola veya imza anahtarı eklemeyin."
+      value: "English and Turkish are welcome. Please omit personal files, passwords and signing keys. / İngilizce veya Türkçe yazabilirsiniz. Kişisel dosya, parola ve imza anahtarı paylaşmayın."
   - type: input
     id: version
     attributes:
-      label: StudyOS sürümü
-      placeholder: "Örn. v0.3.0"
+      label: StudyOS version / StudyOS sürümü
+      placeholder: "e.g. v0.3.0"
     validations:
       required: true
   - type: input
     id: windows
     attributes:
-      label: Windows sürümü
-      placeholder: "Örn. Windows 11, x64"
+      label: Windows version / Windows sürümü
+      placeholder: "e.g. Windows 11, x64"
     validations:
       required: true
   - type: textarea
     id: steps
     attributes:
-      label: Sorun nasıl tekrar oluşuyor?
-      placeholder: "1. ... bölümünü açtım. 2. ... düğmesine bastım."
+      label: Steps to reproduce / Tekrar etme adımları
+      placeholder: "1. Open ... 2. Select ... / 1. ... bölümünü açın. 2. ... seçin."
     validations:
       required: true
   - type: textarea
     id: expected
     attributes:
-      label: Ne olmasını bekliyordunuz, ne oldu?
+      label: Expected and actual behavior / Beklenen ve gerçekleşen davranış
     validations:
       required: true
   - type: textarea
     id: details
     attributes:
-      label: Hata mesajı veya ekran görüntüsü
-      description: "Varsa hata mesajını ekleyin. Görüntüdeki kişisel bilgileri önce gizleyin."
+      label: Error message or screenshot / Hata mesajı veya ekran görüntüsü
+      description: "Hide personal information first. / Önce kişisel bilgileri gizleyin."

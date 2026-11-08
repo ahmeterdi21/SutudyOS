@@ -1,19 +1,21 @@
-# StudyOS yol haritası
+**English** · [Türkçe](ROADMAP.tr.md)
 
-Bu liste yönümüzü gösterir; bir teslim tarihi veya kesin özellik sözü değildir.
+# StudyOS roadmap
 
-## Bir sonraki tasarım turu
+This is a direction for the project, not a release schedule or a promise of specific features.
 
-- Windows'un mavi yerel başlık çubuğu yerine StudyOS tasarımıyla bütünleşen üst çubuk.
-- Açılışta ekrana oturan büyütülmüş pencere; küçültme, geri yükleme, sürükleme ve yeniden boyutlandırma desteği.
-- Görev çubuğu, Başlat menüsü, pencere ve kısayollarda yeni logonun tutarlı görünmesi.
-- Farklı ekran ölçeklerinde içerik ve alt navigasyonun kesilmeden görünmesi.
+## Next design iteration
 
-## Değerlendirilecek iyileştirmeler
+- A custom title bar integrated with StudyOS instead of the blue Windows title bar.
+- A maximized startup layout with minimize, restore, dragging and resizing support.
+- Consistent use of the new logo in the taskbar, Start menu, window and shortcuts.
+- Content and bottom navigation that remain visible at different display scaling settings.
 
-- Ders düzenleme ve daha ayrıntılı içerik organizasyonu.
-- PDF klasörleme ve kütüphane yönetimi.
-- Yedekleme ve geri yüklemeyi kolaylaştırma.
-- Erişilebilirlik ve farklı cihazlarda grafik performansının geliştirilmesi.
+## Ideas to evaluate
 
-Bir fikir paylaşmak için [özellik önerisi oluşturun](https://github.com/ahmeterdi21/SutudyOS/issues/new?template=feature.yml). Önce çözmek istediğiniz ihtiyacı anlatmanız, tasarımı birlikte geliştirmemizi kolaylaştırır.
+- Subject editing and more detailed content organization.
+- PDF folders and improved library management.
+- Easier backup and restore.
+- Accessibility and graphics performance across different devices.
+
+[Suggest a feature](https://github.com/ahmeterdi21/SutudyOS/issues/new?template=feature.yml). Describing the need you want to address helps us shape a useful solution.

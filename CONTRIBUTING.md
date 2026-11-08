@@ -1,16 +1,20 @@
-# Katkıda bulunmak
+**English** · [Türkçe](CONTRIBUTING.tr.md)
 
-StudyOS küçük adımlarla geliştirilen kişisel bir masaüstü projesidir. Hata bildirimi, kullanım geri bildirimi, belge düzeltmesi ve kod katkısı değerlidir.
+# Contributing
 
-## Hata veya fikir paylaşma
+StudyOS is a personal desktop project developed in small steps. Bug reports, usability feedback, documentation corrections and code contributions are welcome. English and Turkish feedback are both welcome.
 
-[Bildirim formlarını](https://github.com/ahmeterdi21/SutudyOS/issues/new/choose) kullanabilirsiniz. Hatalarda sürümü, Windows sürümünü, tekrar etme adımlarını ve beklenen davranışı yazın. Ekran görüntüleri yardımcı olur; kişisel ders notlarını, dosyaları veya parolaları eklemeyin.
+## Report an issue or share an idea
 
-## Kod veya belge katkısı
+Use the [issue forms](https://github.com/ahmeterdi21/SutudyOS/issues/new/choose). For bugs, include the StudyOS version, Windows version, steps to reproduce and expected behavior. Screenshots can help; omit personal notes, private files and passwords.
 
-1. Depoyu kendi hesabınıza fork edin ve değişiklik için bir dal açın.
-2. [Geliştirme rehberi](docs/DEVELOPMENT.md) ile çalıştırın.
-3. Değişikliği anlaşılır ve sınırlı tutun. Hangi sorunu çözdüğünü açıklayın.
-4. Değişikliğe uygun kontrolleri çalıştırıp sonucu pull request'e ekleyin. Yalnızca belge değişikliklerinde bağlantı ve metin kontrolü yeterlidir.
+## Contribute code or documentation
 
-Kullanıcı verileri ve imza anahtarları katkıya dahil edilmemelidir. Üçüncü taraf bileşenlerin atıf ve lisans metinlerini koruyun; ilgili kayıtlar [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md) içindedir. Uygulamanın tamamı için genel bir lisans henüz seçilmemiştir; kaynakların herkese açık olması tek başına yeniden dağıtım lisansı değildir.
+1. Fork the repository and create a branch for your change.
+2. Follow the [development guide](docs/DEVELOPMENT.md).
+3. Keep the change focused and explain the problem it solves.
+4. Run checks appropriate to the change and include the results in your pull request. For documentation-only changes, checking text and links is sufficient.
+
+Keep English documents and their `.tr.md` translations consistent where possible. [Language index](docs/LANGUAGES.md).
+
+Do not include user data or signing keys. Preserve third-party credit and license notices listed in [THIRD-PARTY-NOTICES.md](THIRD-PARTY-NOTICES.md). A project-wide license has not yet been selected; public source visibility alone does not grant a redistribution license.

@@ -1,11 +1,11 @@
-## Ne değişti?
+## What changed? / Ne değişti?
 
-Çözülen sorunu ve yeni davranışı kısaca açıklayın.
+Briefly describe the problem and resulting behavior. English and Turkish are both welcome.
 
-## Nasıl kontrol edildi?
+## Validation / Kontrol
 
-Yaptığınız kontrolü ve sonucunu yazın. Görünüm değiştiyse kişisel veri içermeyen bir ekran görüntüsü ekleyebilirsiniz.
+Describe the checks you performed and their results. For visual changes, include a screenshot without personal data.
 
-## İlgili bildirim
+## Related issue / İlgili bildirim
 
-Varsa ilgili issue bağlantısı.
+Link an issue if applicable.
