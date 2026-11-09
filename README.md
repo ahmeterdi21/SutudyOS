@@ -18,6 +18,8 @@ A personal Windows study workspace that keeps your records on your computer. No 
 
 > **v0.4.0:** Modern window controls, spotlight cards and an optional study-plan assistant. AI connections are a preview; live account verification is still pending. [What's new](CHANGELOG.md) · [Assistant setup](docs/AI-SETUP.md).
 
+> **v0.5.0:** Glass lesson folders, general-purpose text chat and a top-right Settings button are included. AI chat remains a preview; account eligibility and quotas apply. [Release notes](RELEASE-NOTES-v0.5.0.md).
+
 ## Build your own study routine
 
 StudyOS is being developed for students, exam preparation and anyone building a consistent learning habit. Add your subjects, organize your day into study blocks, complete focus sessions and see your progress.

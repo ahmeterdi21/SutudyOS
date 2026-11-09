@@ -528,6 +528,7 @@ export function LiquidNavbar({
     <nav
       ref={navRef as any}
       className={["nimbus-nav", className].filter(Boolean).join(" ")}
+      data-no-active={current<0||undefined}
       data-tone={tone}
       data-gl={gl}
       data-compact={compact === undefined ? undefined : String(compact)}

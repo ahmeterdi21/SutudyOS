@@ -2,6 +2,16 @@
 
 # Sürüm geçmişi
 
+## v0.5.0 — 9 Kasım 2026
+
+- Derslerim için desenli, animasyonlu cam klasörler ve gerçek görev/PDF kısayolları.
+- Asistan’da çalışma planının yanında genel amaçlı metin sohbeti.
+- Animasyonlu mesaj alanı, soru önerileri, güvenli metin/kod gösterimi ve mesaj kopyalama.
+- Mevcut ChatGPT/Gemini bağlantısıyla, açık paylaşım onayı ve sınırlı yakın sohbet geçmişiyle çalışma.
+- Ayarlar’ın alt menüden sağ üstteki ayrı düğmeye taşınması.
+
+Sohbet yalnız açık oturumda tutulur; uygulama yeniden başlatıldığında veya bağlantı değiştirildiğinde temizlenir. Dosya yükleme, internet araması ve doğrudan görev değiştirme genel sohbetin kapsamında değildir. Canlı yanıtlar kullanıcının bağlı hesabını ve kotasını gerektirir.
+
 ## v0.4.1 — Pencere kapatma düzeltmesi
 
 - Kayıt sonrası pencerenin kapanmasını engelleyen eksik Tauri izni eklendi.

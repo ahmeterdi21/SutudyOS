@@ -122,6 +122,7 @@ fn main() {
             ai::ai_login_cancel,
             ai::ai_models,
             ai::ai_plan,
+            ai::ai_chat,
             load_state,
             save_state,
             put_pdf,

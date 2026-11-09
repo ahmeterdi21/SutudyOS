@@ -30,3 +30,9 @@ Kimlik bilgileri uygulama veri klasöründeki `ai-credentials.dpapi` dosyasında
 Derleme ve yerel testler gerçek hesap izninin veya kotanın varlığını kanıtlamaz. İlk canlı giriş ve plan üretimi kullanıcı tarafından tamamlanmalıdır.
 
 Resmî belgeler: [ChatGPT giriş akışı](https://developers.openai.com/siwc/token-sharing-open-source/sign-in), [model ve istek kuralları](https://developers.openai.com/siwc/token-sharing-open-source/models-and-inference), [Gemini ücret ve kota bilgileri](https://ai.google.dev/gemini-api/docs/pricing).
+
+## v0.5.0 sohbet ekranı
+
+Asistan’da Sohbet ve Çalışma planı seçenekleri bulunur. Bağlantı ve model düğmesiyle hesabını ve modelini seç. Sohbette mesaj paylaşım kutusunu onayla; mesajını yazıp Gönder veya Enter kullan. Shift+Enter yeni satır açar. Son yanıtla birlikte yakın geçmiş en fazla 19 mesaj olarak gönderilir. Çok uzun geçmiş sınırlandırılır. Yeni sohbet, sağlayıcı değişikliği veya uygulamanın kapanması geçmişi temizler. Kayıtlar JSON yedeğine eklenmez. Sohbet dosya yüklemez, internet aramaz veya görev değiştirmez.
+
+Ayarlar artık alt menü yerine ekranın sağ üstündeki dişli düğmesindedir.

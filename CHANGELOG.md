@@ -2,6 +2,16 @@
 
 # Changelog
 
+## v0.5.0 — November 9, 2026
+
+- Glass lesson folders with procedural artwork, animated opening and real task/PDF shortcuts.
+- General-purpose text chat in Assistant, alongside the existing study-plan generator.
+- Animated composer, prompt suggestions, safe text/code rendering and message copying.
+- Reuses the selected ChatGPT or Gemini connection, with explicit message-sharing consent and bounded recent conversation context.
+- Settings moved from bottom navigation to a dedicated top-right button.
+
+Chat is kept in memory for the current app session; restarting or changing the connection clears it. Uploaded files, web browsing and direct task modification are not part of general chat. Live generation requires the user's connected account and quota.
+
 ## v0.4.1 — Window-close hotfix
 
 - Fixed a missing Tauri permission that prevented the window from closing after saving.

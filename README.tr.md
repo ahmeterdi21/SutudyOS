@@ -18,6 +18,8 @@ A local-first Windows study workspace with a focus timer, daily planner and pers
 
 > **v0.4.0:** Modern pencere düğmeleri, spotlight kartlar ve isteğe bağlı çalışma planı asistanı. Yapay zekâ bağlantıları önizleme aşamasındadır; canlı hesap doğrulaması henüz bekliyor. [Yenilikler](CHANGELOG.tr.md) · [Asistan rehberi](docs/AI-SETUP.tr.md).
 
+> **v0.5.0:** Cam ders klasörleri, genel amaçlı metin sohbeti ve sağ üst Ayarlar düğmesi eklendi. Yapay zekâ sohbeti önizleme aşamasındadır; hesap uygunluğu ve kotalar geçerlidir. [Sürüm notları](RELEASE-NOTES-v0.5.0.md).
+
 ## Kendi çalışma düzenini oluştur
 
 StudyOS; öğrenciler, sınava hazırlananlar ve kendine bir çalışma alışkanlığı kurmak isteyenler için geliştiriliyor. Derslerini ekle, gününü çalışma bloklarına ayır, odak oturumlarını tamamla ve ilerlemeni gör.

@@ -27,3 +27,11 @@ ChatGPT bağlantısı ve kişisel Gemini anahtarı alternatifi, plan önerisi, d
 ## Acil düzeltme v0.4.1
 
 Kapatma için eksik core:window:allow-destroy izni eklendi. Kayıt sonrası doğrudan destroy çağrısıyla ikinci kapatma olayı kaldırıldı. Yayın etiketi v0.4.1 olmalıdır.
+
+## 9 Kasım — henüz yayımlanmayacak tasarım çalışması
+
+Derslerim bölümü, kullanıcının gönderdiği Glass Folder Cards kaynağıyla yeniden tasarlandı. Ders rengine bağlı yerel desen, açık/koyu cam klasör, açılma animasyonu, gerçek bekleyen görev ve PDF bağlantıları, tam içerik listesi, mevcut odaklanma ve silme onayı korundu. Klasörden görev ayrıntısına geçiş geliştirme penceresinde doğrulandı. Derleme ve 35 uygulama testi başarılı. Bu değişiklik yayımlanmadı; kullanıcının diğer fikirleriyle birleştirilecek.
+
+## v0.5.0 — bugünkü toplu geliştirme hazır
+
+Cam ders klasörleri, Animated AI Chat tasarımından uyarlanan gerçek genel metin sohbeti ve sağ üst Ayarlar kısayolu eklendi. Plan üretimi ayrı mod olarak korundu. Sohbet oturum belleğinde tutulur; 19 mesaja ve byte bütçesine göre yakın bağlam gönderilir. Yeni ai_chat komutu Windows sürümüne derlenmelidir; eski kurulu paket bu komutu içermez. Canlı mesaj sınaması kullanıcı hesabıyla yapılacak. Kullanıcı incelemesi öncesi commit/push/etiket/yayın yapılmadı.

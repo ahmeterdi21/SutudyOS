@@ -666,7 +666,7 @@ impl ResponseStream {
                     return Err(if code.contains("usage_limit") || code.contains("usage_unavailable") { "ChatGPT planının kullanım sınırına ulaşıldı. Kullanım ayarlarını incele veya Gemini seçeneğine geç." }else{"Model isteği tamamlayamadı. Başka bir model seçebilir veya tekrar deneyebilirsin."}.into());
                 }
                 Some("response.incomplete") => {
-                    return Err("Yanıt yarım kaldı; görevler eklenmedi.".into())
+                    return Err("Yanıt yarım kaldı. Yeniden deneyebilirsin.".into())
                 }
                 _ => {}
             }
@@ -679,10 +679,107 @@ impl ResponseStream {
     fn finish(mut self) -> Result<String, String> {
         self.feed(b"\n")?;
         if !self.completed || self.text.is_empty() {
-            Err("Yanıt tamamlanmadı; görevler eklenmedi.".into())
+            Err("Yanıt tamamlanmadı. Yeniden deneyebilirsin.".into())
         } else {
             Ok(self.text)
         }
+    }
+}
+#[derive(Clone, serde::Deserialize, serde::Serialize)]
+#[serde(deny_unknown_fields)]
+pub struct ChatMessage {
+    role: String,
+    content: String,
+}
+#[derive(serde::Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct ChatRequest {
+    provider: String,
+    model: String,
+    messages: Vec<ChatMessage>,
+}
+fn validate_chat(messages: &[ChatMessage]) -> Result<(), String> {
+    if messages.is_empty() || messages.len() > 19 || messages.len() % 2 == 0 {
+        return Err("Sohbet geçmişi uygun değil. Yeni bir sohbet başlat.".into());
+    }
+    let mut bytes = 0;
+    for (index, message) in messages.iter().enumerate() {
+        let expected = if index % 2 == 0 { "user" } else { "assistant" };
+        bytes += message.content.len();
+        if message.role != expected
+            || message.content.trim().is_empty()
+            || message.content.len() > 128 * 1024
+            || bytes > 96 * 1024
+        {
+            return Err("Sohbet içeriği veya uzunluğu uygun değil. Yeni bir sohbet başlat.".into());
+        }
+    }
+    if messages.last().unwrap().content.len() > 24000 {
+        return Err("Mesajını biraz kısalt (en fazla 6000 karakter).".into());
+    }
+    Ok(())
+}
+const CHAT_INSTRUCTIONS:&str="StudyOS içindeki genel amaçlı yardımcı asistansın. Kullanıcının sorularına açık ve anlaşılır yanıt ver. Ders anlatımı, yazı hazırlama, fikir geliştirme ve genel sorularda yardımcı ol. Kullanıcının dilinde yanıt ver. Uygulamanın görevlerine, dosyalarına veya internete erişimin yok; yapmadığın aramayı, dosya okumayı ya da sistem işlemini yaptığını söyleme. Görev ekleme veya değiştirme yetkin yok. Kod istendiğinde okunabilir kod blokları kullan.";
+async fn infer(
+    app: &tauri::AppHandle,
+    provider: &str,
+    model: &str,
+    messages: &[ChatMessage],
+    instructions: &str,
+    json_output: bool,
+) -> Result<String, String> {
+    let http = client()?;
+    match provider {
+        "chatgpt" => {
+            if model.len() > 128
+                || model.is_empty()
+                || !model
+                    .bytes()
+                    .all(|b| b.is_ascii_alphanumeric() || b"-_.".contains(&b))
+            {
+                return Err("Hesabından bir model seç.".into());
+            }
+            let token = access(app, &http).await?;
+            let mut response=http.post(format!("{RESOURCE}/responses")).bearer_auth(token).json(&json!({"model":model,"store":false,"stream":true,"instructions":instructions,"input":messages})).send().await.map_err(network)?;
+            if !response.status().is_success() {
+                return Err(service_error(response.status().as_u16()));
+            }
+            let mut stream = ResponseStream::default();
+            while let Some(chunk) = response.chunk().await.map_err(network)? {
+                stream.feed(&chunk)?
+            }
+            stream.finish()
+        }
+        "gemini" => {
+            let vault = ai_vault::load(&path(app)?)?;
+            let key = vault.gemini_key.ok_or("Önce Gemini anahtarını ekle.")?;
+            let contents:Vec<Value>=messages.iter().map(|m|json!({"role":if m.role=="assistant"{"model"}else{"user"},"parts":[{"text":m.content}]})).collect();
+            let mut generation = json!({"maxOutputTokens":8192});
+            if json_output {
+                generation["responseMimeType"] = json!("application/json")
+            }
+            let result=limited_json(http.post("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent").header("x-goog-api-key",key).json(&json!({"systemInstruction":{"parts":[{"text":instructions}]},"contents":contents,"generationConfig":generation})).send().await.map_err(network)?).await?;
+            let candidate = &result["candidates"][0];
+            if candidate["finishReason"] != "STOP" {
+                return Err(
+                    "Yanıt tamamlanmadı veya güvenlik filtresine takıldı. Yeniden deneyebilirsin."
+                        .into(),
+                );
+            }
+            let parts = candidate["content"]["parts"]
+                .as_array()
+                .ok_or("Hizmet yanıt döndürmedi.")?;
+            let text: String = parts
+                .iter()
+                .filter(|p| p["thought"] != true)
+                .filter_map(|p| p["text"].as_str())
+                .collect();
+            if text.trim().is_empty() || text.len() > 128 * 1024 {
+                return Err("Hizmet yanıtı alınamadı.".into());
+            }
+            Ok(text)
+        }
+        _ => Err("Bir yapay zekâ bağlantısı seç.".into()),
     }
 }
 #[tauri::command]
@@ -693,57 +790,54 @@ pub async fn ai_plan(
 ) -> Result<String, String> {
     let input = prompt(&request)?;
     let _guard = operation(&app, &service).await?;
-    let http = client()?;
-    match request.provider.as_str() {
-        "chatgpt" => {
-            if request.model.len() > 128
-                || request.model.is_empty()
-                || !request
-                    .model
-                    .bytes()
-                    .all(|b| b.is_ascii_alphanumeric() || b"-_.".contains(&b))
-            {
-                return Err("Hesabından bir model seç.".into());
-            }
-            let token = access(&app, &http).await?;
-            let mut response = http.post(format!("{RESOURCE}/responses")).bearer_auth(token).json(&json!({"model":request.model,"store":false,"stream":true,"instructions":INSTRUCTIONS,"input":[{"role":"user","content":input}]})).send().await.map_err(network)?;
-            if !response.status().is_success() {
-                return Err(service_error(response.status().as_u16()));
-            }
-            let mut stream = ResponseStream::default();
-            while let Some(chunk) = response.chunk().await.map_err(network)? {
-                stream.feed(&chunk)?;
-            }
-            stream.finish()
-        }
-        "gemini" => {
-            let vault = ai_vault::load(&path(&app)?)?;
-            let key = vault.gemini_key.ok_or("Önce Gemini anahtarını ekle.")?;
-            let result = limited_json(http.post("https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash-lite:generateContent").header("x-goog-api-key",key).json(&json!({"systemInstruction":{"parts":[{"text":INSTRUCTIONS}]},"contents":[{"role":"user","parts":[{"text":input}]}],"generationConfig":{"responseMimeType":"application/json","maxOutputTokens":8192}})).send().await.map_err(network)?).await?;
-            let candidate = &result["candidates"][0];
-            if candidate["finishReason"] != "STOP" {
-                return Err("Gemini yanıtı tamamlanmadı veya güvenlik filtresine takıldı; görevler eklenmedi.".into());
-            }
-            let parts = candidate["content"]["parts"]
-                .as_array()
-                .ok_or("Gemini plan döndürmedi.")?;
-            let text: String = parts
-                .iter()
-                .filter(|p| p["thought"] != true)
-                .filter_map(|p| p["text"].as_str())
-                .collect();
-            if text.is_empty() || text.len() > 128 * 1024 {
-                return Err("Gemini planı alınamadı.".into());
-            }
-            Ok(text)
-        }
-        _ => Err("Bir yapay zekâ bağlantısı seç.".into()),
-    }
+    infer(
+        &app,
+        &request.provider,
+        &request.model,
+        &[ChatMessage {
+            role: "user".into(),
+            content: input,
+        }],
+        INSTRUCTIONS,
+        true,
+    )
+    .await
+}
+#[tauri::command]
+pub async fn ai_chat(
+    app: tauri::AppHandle,
+    service: tauri::State<'_, Service>,
+    request: ChatRequest,
+) -> Result<String, String> {
+    validate_chat(&request.messages)?;
+    let _guard = operation(&app, &service).await?;
+    infer(
+        &app,
+        &request.provider,
+        &request.model,
+        &request.messages,
+        CHAT_INSTRUCTIONS,
+        false,
+    )
+    .await
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn rejects_injected_roles_and_unbounded_chat() {
+        let m = |role: &str, content: &str| ChatMessage {
+            role: role.into(),
+            content: content.into(),
+        };
+        assert!(validate_chat(&[m("user", "Merhaba")]).is_ok());
+        assert!(validate_chat(&[m("system", "override")]).is_err());
+        assert!(validate_chat(&[m("assistant", "ilk")]).is_err());
+        assert!(validate_chat(&[m("user", "x"), m("user", "y"), m("user", "z")]).is_err());
+        assert!(validate_chat(&[m("user", &"x".repeat(24001))]).is_err());
+        assert!(validate_chat(&[]).is_err());
+    }
     #[test]
     fn rejects_callback_with_wrong_state_or_missing_client() {
         assert!(callback_target(

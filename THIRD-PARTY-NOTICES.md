@@ -33,3 +33,11 @@ SOFTWARE.
 ## Interactive card reference
 
 `src/components/SpotlightCard.tsx` and `spotlight-card.css` adapt the interaction concept from the user-supplied InteractiveTravelCard by kavikatiyar: https://21st.dev/r/kavikatiyar/3d-card . StudyOS uses local lesson content, theme-aware color surfaces, pointer spotlight, reduced tilt, keyboard focus and reduced-motion support. The travel sample image and external destination are not included. No additional animation dependency was added.
+
+## Glass Folder Cards
+
+`src/components/ui/glass-folder-cards.tsx` and its CSS were adapted from the user-supplied React component by kedhareswer: https://21st.dev/r/kedhareswer/glass-folder-cards . Original design and procedural artwork comments are retained. StudyOS adds live controlled lesson content, Turkish labels, shared stylesheet, bounded artwork cache, reduced-motion pointer handling and integration with real tasks/PDFs. The demo files and sample add action are not used in the application.
+
+## Animated AI Chat
+
+`src/components/AnimatedAIChat.tsx` and its stylesheet adapt the composer layout, resize behavior, suggestion chips, focus treatment and animation concept from the user-supplied Animated AI Chat by jatin-yadav05: https://21st.dev/r/jatin-yadav05/animated-ai-chat . StudyOS replaces the demo timer and mock attachments with a native, authenticated text-chat service, bounded conversation context, explicit sharing consent and real response/error states. No Framer Motion dependency, mock file upload, Figma action or generated-response simulation is included.
