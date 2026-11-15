@@ -2,6 +2,17 @@
 
 # Changelog
 
+## v0.6.0 — November 15, 2026
+
+- Optional button/navigation sounds, separate timer-end alarm and volume controls; visible focus/break completion notices.
+- Lesson-based PDF library with nested folders, animated glass cards, breadcrumbs and document moves between folders.
+- Daily streaks for at least 30 minutes of completed focus sessions, seven-day progress and personal records.
+- Kıvılcım, an animated fox companion with today’s tasks, inactive-lesson reminders and encouraging streak messages.
+- Opt-in Windows notifications: one daily digest and timed task reminders; saved delivery tracking prevents routine repeats.
+- Settings now sits immediately left of the glass appearance control. Scrollbars are hidden while scrolling stays available.
+
+Existing tasks, completed sessions and imported PDFs are preserved. Notifications require the app to be running (including minimized); they do not run after the app closes. The interface remains in Turkish.
+
 ## v0.5.0 — November 9, 2026
 
 - Glass lesson folders with procedural artwork, animated opening and real task/PDF shortcuts.

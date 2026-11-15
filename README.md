@@ -16,9 +16,7 @@ A personal Windows study workspace that keeps your records on your computer. No 
 
 > **Language:** The application interface is currently in **Turkish**. This repository provides English and Turkish documentation; an English app interface is not included in the current release.
 
-> **v0.4.0:** Modern window controls, spotlight cards and an optional study-plan assistant. AI connections are a preview; live account verification is still pending. [What's new](CHANGELOG.md) · [Assistant setup](docs/AI-SETUP.md).
-
-> **v0.5.0:** Glass lesson folders, general-purpose text chat and a top-right Settings button are included. AI chat remains a preview; account eligibility and quotas apply. [Release notes](RELEASE-NOTES-v0.5.0.md).
+> **v0.6.0:** Timer sounds, a nested PDF library, daily streaks and Kıvılcım’s personal reminders. Windows notifications are optional. [Release notes](RELEASE-NOTES-v0.6.0.md).
 
 ## Build your own study routine
 
@@ -36,8 +34,10 @@ The banner above is an illustration, not an application screenshot. It contains 
 | **Study Room** | Use preset or custom focus durations; pause the timer and keep its state across pages and restarts. |
 | **Subjects** | Create subjects or learning areas with a name and color. |
 | **Planner** | Add topics, notes, dates, start times and durations; review the day's schedule and overlapping tasks. |
-| **PDF Library** | Copy and view your notes inside the app. Up to 25 MB per file. |
-| **Statistics** | Review completed focus sessions and your study history. |
+| **PDF Library** | Organize PDFs by subject and nested folders; move and view files. Up to 25 MB per file. |
+| **Statistics & streaks** | Daily 30-minute streaks, seven-day progress and personal study records. |
+| **Kıvılcım** | Today’s tasks, inactive-subject reminders and optional Windows notifications while the app is running. |
+| **Sounds** | Optional button effects, a timer-end alarm and separate sound controls. |
 | **Appearance** | Light/dark mode, adjustable glass, spotlight cards, animated navigation and integrated window controls. |
 | **Assistant — preview** | Connect ChatGPT or your own Gemini key; review, edit and add suggested study tasks. Eligibility and quotas apply. |
 

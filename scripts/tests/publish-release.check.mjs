@@ -1,0 +1,11 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {validateReleaseAssets} from '../publish-release.mjs';
+const options={version:'0.6.0',repository:'ahmeterdi21/SutudyOS'};
+function fixture(){return {release:{tag_name:'v0.6.0',assets:['StudyOS_0.6.0_x64-setup.exe','StudyOS_0.6.0_x64-setup.exe.sig','latest.json'].map((name,i)=>({id:i+1,name,state:'uploaded',size:10}))},manifest:{version:'0.6.0',platforms:{'windows-x86_64':{url:'https://github.com/ahmeterdi21/SutudyOS/releases/download/v0.6.0/StudyOS_0.6.0_x64-setup.exe',signature:'signed'}}}}}
+test('accepts complete artifacts pointing to the same installer and signature',()=>{const f=fixture();assert.equal(validateReleaseAssets(f.release,f.manifest,'signed\n',options).length,3)});
+test('refuses a partial or zero-byte installer upload',()=>{const f=fixture();f.release.assets[0].size=0;assert.throws(()=>validateReleaseAssets(f.release,f.manifest,'signed',options),/asset/)});
+test('refuses mismatched tags and updater versions',()=>{const f=fixture();f.release.tag_name='v0.5.0';assert.throws(()=>validateReleaseAssets(f.release,f.manifest,'signed',options),/tag/);f.release.tag_name='v0.6.0';f.manifest.version='0.5.0';assert.throws(()=>validateReleaseAssets(f.release,f.manifest,'signed',options),/version/)});
+test('refuses missing Windows targets and a signature mismatch',()=>{const f=fixture();assert.throws(()=>validateReleaseAssets(f.release,f.manifest,'other',options),/signatures/);f.manifest.platforms={};assert.throws(()=>validateReleaseAssets(f.release,f.manifest,'signed',options),/platform/)});
+test('refuses an updater URL to an older or external installer',()=>{const f=fixture();f.manifest.platforms['windows-x86_64'].url='https://example.org/StudyOS.exe';assert.throws(()=>validateReleaseAssets(f.release,f.manifest,'signed',options),/URL/)});
+test('accepts Tauri API asset URLs only for the actual installer asset ID',()=>{const f=fixture();f.manifest.platforms['windows-x86_64'].url='https://api.github.com/repos/ahmeterdi21/SutudyOS/releases/assets/1';assert.equal(validateReleaseAssets(f.release,f.manifest,'signed',options).length,3);f.manifest.platforms['windows-x86_64'].url='https://api.github.com/repos/ahmeterdi21/SutudyOS/releases/assets/99';assert.throws(()=>validateReleaseAssets(f.release,f.manifest,'signed',options),/URL/)});

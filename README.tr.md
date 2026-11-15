@@ -16,9 +16,7 @@ A local-first Windows study workspace with a focus timer, daily planner and pers
 
 </div>
 
-> **v0.4.0:** Modern pencere düğmeleri, spotlight kartlar ve isteğe bağlı çalışma planı asistanı. Yapay zekâ bağlantıları önizleme aşamasındadır; canlı hesap doğrulaması henüz bekliyor. [Yenilikler](CHANGELOG.tr.md) · [Asistan rehberi](docs/AI-SETUP.tr.md).
-
-> **v0.5.0:** Cam ders klasörleri, genel amaçlı metin sohbeti ve sağ üst Ayarlar düğmesi eklendi. Yapay zekâ sohbeti önizleme aşamasındadır; hesap uygunluğu ve kotalar geçerlidir. [Sürüm notları](RELEASE-NOTES-v0.5.0.md).
+> **v0.6.0:** Sayaç sesleri, klasörlü PDF kütüphanesi, günlük seriler ve Kıvılcım’ın kişisel hatırlatmaları. Windows bildirimleri isteğe bağlıdır. [Sürüm notları](RELEASE-NOTES-v0.6.0.md).
 
 ## Kendi çalışma düzenini oluştur
 
@@ -38,8 +36,10 @@ Yeni sürümde kartlarda hafif 3D hareket ve fareyi takip eden ışık, tasarım
 | **Çalışma Odası** | Hazır veya özel sürelerle odaklan; sayacı duraklat, sayfa değiştir ve kaldığın durumu koru. |
 | **Derslerim** | Kendi derslerini veya çalışma alanlarını ad ve renkle düzenle. |
 | **Planlayıcı** | Görevlerine konu, açıklama, tarih, saat ve süre ekle; günün akışını ve saat çakışmalarını incele. |
-| **PDF Kütüphanesi** | Notlarını uygulamaya kopyala ve görüntüle. Dosya başına en fazla 25 MB. |
-| **İstatistikler** | Tamamladığın odak oturumlarını ve çalışma geçmişini takip et. |
+| **PDF Kütüphanesi** | PDF’lerini ders ve alt klasörlere ayır, taşı ve görüntüle. Dosya başına en fazla 25 MB. |
+| **İstatistikler ve seri** | Günlük 30 dakika serini, haftalık ilerlemeni ve kişisel çalışma rekorlarını gör. |
+| **Kıvılcım** | Bugünkü görevlerin, ders hatırlatmaların ve uygulama açıkken isteğe bağlı Windows bildirimleri. |
+| **Sesler** | Düğme efektlerini, süre bitiş zilini ve ses düzeyini ayarlardan yönet. |
 | **Görünüm** | Açık/koyu tema, ayarlanabilir cam yüzeyler ve animasyonlu alt navigasyon kullan. |
 
 Görev, ders ve PDF'leri basılı tutarak kaldırabilirsin; kısa tıklama normal onay penceresi açar. Bir dersi kaldırmak ona bağlı görevlerini, dosyalarını ve geçmişini silmez.

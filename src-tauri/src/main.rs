@@ -4,6 +4,7 @@ use tauri::Manager;
 mod ai;
 mod ai_vault;
 mod updates;
+mod notifications;
 fn database(app: &tauri::AppHandle) -> Result<Connection, String> {
     let dir = app.path().app_data_dir().map_err(|e| e.to_string())?;
     std::fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
@@ -110,6 +111,7 @@ fn main() {
             Ok(())
         })
         .plugin(tauri_plugin_updater::Builder::new().build())
+        .plugin(tauri_plugin_notification::init())
         .manage(ai::Service::default())
         .manage(updates::Pending(std::sync::Mutex::new(None)))
         .invoke_handler(tauri::generate_handler![
@@ -123,6 +125,7 @@ fn main() {
             ai::ai_models,
             ai::ai_plan,
             ai::ai_chat,
+            notifications::study_notify,
             load_state,
             save_state,
             put_pdf,

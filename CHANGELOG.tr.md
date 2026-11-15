@@ -2,6 +2,17 @@
 
 # Sürüm geçmişi
 
+## v0.6.0 — 15 Kasım 2026
+
+- Ayarlardan yönetilen düğme/geçiş sesleri, ayrı süre bitiş zili, ses düzeyi ve görünür çalışma/mola bitiş uyarısı.
+- Derslere bağlı PDF kütüphanesi; animasyonlu cam kartlar, alt klasörler, konum gezinmesi ve PDF konumunu değiştirme.
+- Günde en az 30 dakika tamamlanmış odak çalışmasıyla seri; son yedi gün ve kişisel çalışma rekorları.
+- Animasyonlu tilki Kıvılcım: bugünkü görevler, dört gündür çalışılmayan dersler, uzun aradan sonra karşılama ve seri hatırlatmaları.
+- İzinle açılan Windows bildirimleri: günlük özet, saatli görev hatırlatmaları ve tekrarları önleyen kalıcı gönderim kaydı.
+- Ayarlar, Cam görünümü düğmesinin hemen soluna taşındı. Kaydırma korunarak çubuklar gizlendi.
+
+Mevcut görevler, tamamlanmış oturumlar ve PDF’ler korunur. Bildirimler için uygulamanın açık veya küçültülmüş olması gerekir; tamamen kapalıyken çalışmaz.
+
 ## v0.5.0 — 9 Kasım 2026
 
 - Derslerim için desenli, animasyonlu cam klasörler ve gerçek görev/PDF kısayolları.
