@@ -1,5 +1,14 @@
 **English** · [Türkçe](CHANGELOG.tr.md)
 
+## v0.7.0 — November 15, 2026
+
+- Month/week planner with lesson-colored task cards and date-based task creation.
+- Streak-aware expressions for the fox companion.
+- HTTPS/RSS/Atom school announcements with 12-hour checks and offline cached results.
+- The Supabase team workspace remains disabled and under separate development.
+- School website compatibility varies. The Uludağ adapter is included, but live downloads could not be verified due to network timeouts in the development environment.
+
+
 # Changelog
 
 ## v0.6.0 — November 15, 2026

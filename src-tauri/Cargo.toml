@@ -1,6 +1,6 @@
 [package]
 name = "studyos"
-version = "0.6.0"
+version = "0.7.0"
 edition = "2021"
 
 [build-dependencies]
@@ -19,7 +19,7 @@ sha2 = "0.10"
 base64 = "0.22"
 rand = "0.8"
 jsonwebtoken = "9"
-uuid = { version = "1", features = ["v4"] }
+uuid = { version = "1", features = ["v4", "serde"] }
 fs2 = "0.4"
 
 [target.'cfg(windows)'.dependencies]

@@ -19,6 +19,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: npm ci
       - run: npm test
+      - run: npm run test:teams
       - run: node --test scripts/tests/configure-release.check.mjs
       - run: node --test scripts/tests/publish-release.check.mjs
       - name: Configure signed update channel
@@ -31,6 +32,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+          STUDYOS_TEAM_URL: ${{ vars.STUDYOS_TEAM_URL }}
+          STUDYOS_TEAM_PUBLIC_KEY: ${{ vars.STUDYOS_TEAM_PUBLIC_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
           tagName: ${{ github.ref_name }}

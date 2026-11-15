@@ -1,5 +1,14 @@
 [English](CHANGELOG.md) · **Türkçe**
 
+## v0.7.0 — 15 Kasım 2026
+
+- Ay/hafta görünümlü planlayıcı, takvim içinde ders renkli görevler ve tarihe görev ekleme.
+- Kıvılcım için seri uzunluğuna ve verilen aralara göre değişen yüz ifadeleri.
+- Okul duyuruları için HTTPS/RSS/Atom kaynakları, 12 saatlik kontrol ve çevrimdışı önbellek.
+- Supabase takım alanı bu sürümde etkin değildir; geliştirmesi ayrı devam ediyor.
+- Okul siteleri farklı yapılar kullanabilir. Uludağ uyarlaması eklendi, ancak canlı indirme bu ortamda zaman aşımı nedeniyle doğrulanamadı.
+
+
 # Sürüm geçmişi
 
 ## v0.6.0 — 15 Kasım 2026

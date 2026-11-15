@@ -5,6 +5,8 @@ mod ai;
 mod ai_vault;
 mod updates;
 mod notifications;
+// Team preview is parked until the Supabase pilot is approved.
+mod school;
 fn database(app: &tauri::AppHandle) -> Result<Connection, String> {
     let dir = app.path().app_data_dir().map_err(|e| e.to_string())?;
     std::fs::create_dir_all(&dir).map_err(|e| e.to_string())?;
@@ -113,8 +115,12 @@ fn main() {
         .plugin(tauri_plugin_updater::Builder::new().build())
         .plugin(tauri_plugin_notification::init())
         .manage(ai::Service::default())
+
         .manage(updates::Pending(std::sync::Mutex::new(None)))
         .invoke_handler(tauri::generate_handler![
+
+            school::school_fetch,
+            school::school_open,
             ai::ai_status,
             ai::ai_save_gemini,
             ai::ai_disconnect,

@@ -19,3 +19,11 @@ export function studyStreak(sessions:Session[],today:string){
  return {current,longest,todaySeconds,achieved,bestDay,longestSession,qualifiedDays:qualified.length,totalSeconds:[...totals.values()].reduce((a,b)=>a+b,0),week:Array.from({length:7},(_,i)=>{const n=end-6+i;return {date:key(n),seconds:totals.get(n)||0,qualified:(totals.get(n)||0)>=STREAK_SECONDS}})};
 }
 export type StreakSummary=ReturnType<typeof studyStreak>;
+
+export type FoxMood='welcome'|'happy'|'proud'|'radiant'|'sad';
+export function foxMood(summary:StreakSummary,awayDays=0):FoxMood {
+ if(summary.current>=14)return 'radiant';
+ if(summary.current>=7)return 'proud';
+ if(summary.current>0)return 'happy';
+ return summary.qualifiedDays>0||awayDays>=4?'sad':'welcome';
+}

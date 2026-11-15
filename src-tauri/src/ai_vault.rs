@@ -21,7 +21,7 @@ pub struct Account {
 
 // Tokens never enter the study database, exported backups or webview storage.
 #[cfg(windows)]
-fn protect(bytes: &[u8], encrypt: bool) -> Result<Vec<u8>, String> {
+pub(crate) fn protect(bytes: &[u8], encrypt: bool) -> Result<Vec<u8>, String> {
     use windows_sys::Win32::{Foundation::LocalFree, Security::Cryptography::*};
     let input = CRYPT_INTEGER_BLOB {
         cbData: bytes.len() as u32,
@@ -62,7 +62,7 @@ fn protect(bytes: &[u8], encrypt: bool) -> Result<Vec<u8>, String> {
     }
 }
 #[cfg(not(windows))]
-fn protect(_: &[u8], _: bool) -> Result<Vec<u8>, String> {
+pub(crate) fn protect(_: &[u8], _: bool) -> Result<Vec<u8>, String> {
     Err("Güvenli hesap saklama bu sürümde Windows gerektirir.".into())
 }
 pub fn load(path: &Path) -> Result<Vault, String> {
